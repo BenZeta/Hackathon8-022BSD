@@ -45,7 +45,7 @@ let songs = [
     title: "Don't Start Now",
     album: "Future Nostalgia",
     shortLyrics: "Did a full 180, crazy",
-    longLyrics: "If you don’t wanna see me dancing with somebody, don’t show up, don’t come out",
+    longLyrics: "If you don't wanna see me dancing with somebody, don't show up, don't come out",
   },
   {
     id: 7,
@@ -63,56 +63,77 @@ let songs = [
     shortLyrics: "I see it, I like it, I want it, I got it",
     longLyrics: "Wearing a ring but ain't gon' be no missus, bought matching diamonds for six of my b******",
   },
+  {
+    id: 9,
+    name: "Ariana Grande",
+    title: "7 rings",
+    album: "thank u, next",
+    shortLyrics: "I see it, I like it, I want it, I got it",
+    longLyrics: "Wearing a ring but ain't gon' be no missus, bought matching diamonds for six of my b******",
+  },
 ];
 
-// Test
+// BACKUP
+// let hihihi = document.getElementById('hihihi');
+
+// hihihi.value= "Flash"
+// localStorage.setItem("songsData", JSON.stringify(songs));
+
 document.addEventListener("DOMContentLoaded", () => {
   function helperCreateCard(song) {
     const div = document.createElement("div");
     div.className = "card";
-
     div.innerHTML = `
-            <img src="https://th.bing.com/th/id/OIP.eVBndpZHDo9nbZVKefk8bAHaD4?w=345&h=181&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Gambar Kartu' class="card-img" />
-        <div class="card-content">
-          <h3 class="card-name">${song.name}</h3>
-          <p class="card-judul">${song.title}</p>
-          <p class="card-album">${song.album}</p>
-          <p class="card-lyric">${song.shortLyrics}</p>
-        <div class="button">
-          <button class="start-button">Start Game</button>
-          <button class="edit-button">Edit</button>
-          <button class="delete-button">Delete</button>
-        </div>
-        `;
+              <img src="https://th.bing.com/th/id/OIP.eVBndpZHDo9nbZVKefk8bAHaD4?w=345&h=181&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Gambar Kartu' class="card-img" />
+          <div class="card-content">
+            <h3 class="card-name">${song.name}</h3>
+            <p class="card-judul">${song.title}</p>
+            <p class="card-album">${song.album}</p>
+            <p class="card-lyric">${song.shortLyrics}</p>
+          <div class="button">
+            <button class="start-button">Start Game</button>
+            <button class="edit-button">Edit</button>
+            <button class="delete-button">Delete</button>
+          </div>
+          `;
 
-    const deleteBtn = document.querySelector('.')
+    const deleteBtn = div.querySelector(".delete-button");
+
+    deleteBtn.addEventListener("click", () => {
+      deleteCard(song.id);
+    });
 
     return div;
   }
 
-  function renderCard() {
-    const container = document.querySelector(".container");
+  
 
-    for (let i = 0; i < songs.length; i++) {
-      const card = helperCreateCard(songs[i]);
+  function renderCard() {
+    let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
+
+    const container = document.querySelector(".container");
+    container.innerHTML = "";
+
+    for (let i = 0; i < getSong.length; i++) {
+      const card = helperCreateCard(getSong[i]);
       container.appendChild(card);
     }
   }
 
   function deleteCard(id) {
-    let newData = [];
+    let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
 
-    for (let i = 0; i < songs.length; i++) {
-      if (songs[i].id !== id) {
-        newData.push(songs[i]);
-      }
-    }
+    const newData = getSong.filter((song) => song.id !== id);
+
+    localStorage.setItem("songsData", JSON.stringify(newData));
 
     songs = newData;
-
     renderCard();
   }
 
+  function editCard() {
+    // asdgasdg
+  }
 
   renderCard();
 });

@@ -1,56 +1,9 @@
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #f4f4f9;
-}
-.search-container {
-  display: flex;
-  align-items: center;
-  border: 2px solid #4CAF50;
-  border-radius: 25px;
-  overflow: hidden;
-  width: 300px;
-  background-color: white;
-}
-.button {
-  display: flex;
-  justify-content: right;
-}
-
-.search-input {
-  border: none;
-  padding: 10px;
-  font-size: 1em;
-  width: 100%;
-  outline: none;
-}
-
-.search-button {
-  background-color: #4A628A;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  transition: background-color 0.3s ease;
-}
-
-.search-button:hover {
-  background-color: #45a049;
-}
-=======
 /* Card styling */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   margin: 20px; /* This ensures even space around each card */
-  flex: 1 1 300px; /* Allow cards to take up space evenly */
+  /* flex: 1 1 300px; Allow cards to take up space evenly */
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -69,7 +22,7 @@ img {
   display: flex;
   flex-wrap: wrap; /* Allow cards to wrap to the next line */
   gap: 20px; /* Space between cards */
-  justify-content: center; /* Center the cards in the container */
+  justify-content: flex-start; /* Center the cards in the container */
   width: 80%;
   margin: 0 auto;
 }
@@ -81,4 +34,30 @@ img {
 .button {
   padding-left: 10px;
   padding-bottom: 5px;
+}
+
+.header {
+  background: radial-gradient(circle at top center, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);
+  width: 100%;
+  /* height: 100vh; Makes the header's height equal to the viewport height */
+  margin-bottom: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  border: 0;
+  border-radius: 5px;
+}
+
+.header h1 {
+  font-size: 2rem; /* Adjust font size as needed */
+  color: #333; /* Set text color for contrast */
+}
+
+body {
+  margin: 0;
+}
+
+.search-container {
+  margin-left : 25px;
 }
