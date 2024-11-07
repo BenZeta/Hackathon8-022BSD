@@ -57,13 +57,13 @@ img {
 .single-card:hover .overlay {
   opacity: 1;
 }
-/* Card container styling */
+
 .container {
   padding: 2px 16px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   width: 80%;
   margin: 0 auto;
 }
@@ -157,6 +157,7 @@ img {
 }
 
 body {
+  display: block;
   margin: 0;
   font-family: "Montserrat", sans-serif;
 }
