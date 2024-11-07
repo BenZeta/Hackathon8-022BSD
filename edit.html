@@ -8,32 +8,34 @@
   </head>
   <body>
     <div class="form-container">
-      <h2 class="form-title">Create a Song</h2>
+      <h2 class="form-title">Edit Song Details</h2>
       <form id="songForm">
         <div class="form-group">
           <label for="name">Artist Name</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="editName" name="name" required />
         </div>
 
         <div class="form-group">
           <label for="title">Song Title</label>
-          <input type="text" id="title" name="title" required />
+          <input type="text" id="editTitle" name="title" required />
         </div>
 
         <div class="form-group">
           <label for="album">Album Name</label>
-          <input type="text" id="album" name="album" required />
+          <input type="text" id="editAlbum" name="album" required />
         </div>
 
         <div class="form-group">
           <label for="lyrics">Lyrics</label>
-          <textarea id="lyrics" name="lyrics" required></textarea>
+          <textarea id="editLyrics" name="editLyrics" required></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">Save Changes</button>
+        <a href="index.html" class="edit-submit-btn" onclick="simpan()" >Save Changes</a>
+        <!-- <input value="Save Changes" type="button" class="edit-submit-btn" /> -->
       </form>
     </div>
 
     <script src="app.js"></script>
+    <script src="edit.js"></script>
   </body>
 </html>
