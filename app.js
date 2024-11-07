@@ -78,12 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="card-album">${song.album}</p>
           <p class="card-lyric">${song.shortLyrics}</p>
         <div class="button">
-          <button class="card-button">Start Game</button>
-          <button class="card-button">Edit</button>
-          <button class="card-button">Delete</button>
+          <button class="start-button">Start Game</button>
+          <button class="edit-button">Edit</button>
+          <button class="delete-button">Delete</button>
         </div>
         `;
-
+//a
     return div;
   }
 
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderCard();
   }
-
+  
   //   const deleteBtn = document.querySelector(".delete-button");
   //   deleteBtn.addEventListener("click", deleteCard());
 
