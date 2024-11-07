@@ -236,6 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
       container.appendChild(card);
     }
   }
+}
 
   let filterInput = document.getElementById("search-input");
   let filterType = document.getElementById("filterType");
@@ -248,13 +249,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function deleteCard(id) {
     let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
 
-    const newData = getSong.filter((song) => song.id !== id);
+  const newData = getSong.filter((song) => song.id !== id);
 
-    localStorage.setItem("songsData", JSON.stringify(newData));
+  localStorage.setItem("songsData", JSON.stringify(newData));
 
-    songs = newData;
-    renderCard();
-  }
+  songs = newData;
+  renderCard();
+}
 
   function createCard(event) {
     event.preventDefault();
@@ -299,6 +300,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function editCard(id) {
     localStorage.setItem("editId", String(id));
   }
+}
 
-  renderCard();
-});
+renderCard();
