@@ -8,19 +8,28 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a href="index2.html">Go</a>
-
     <div class="header">
       <h1>BEING STAR BY A LYRIC</h1>
     </div>
 
-    <div class="search-container">
-      <input type="text" placeholder="Cari Lagu" class="search-input" id="hihihi"/>
-      <button class="search-button">Cari</button>
+    <div class="input-container">
+      <div class="search-container">
+        <select id="filterType">
+          <option value="name">Artist Name</option>
+          <option value="title">Song</option>
+          <option value="album">Album</option>
+          <option value="longLyrics">Lyrics</option>
+        </select>
+        <input type="text" placeholder="Search Song" id="search-input" />
+      </div>
+      <div class="create-form">
+        <a href="form.html"><button class="create-button">Create</button></a>
+      </div>
     </div>
+
     <div class="container">
       <div class="card">
-        <img src='https://th.bing.com/th/id/OIP.eVBndpZHDo9nbZVKefk8bAHaD4?w=345&h=181&c=7&r=0&o=5&dpr=1.5&pid=1.7 alt="Gambar Kartu" class="card-img' />
+        <img src="https://th.bing.com/th/id/OIP.eVBndpZHDo9nbZVKefk8bAHaD4?w=345&h=181&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Gambar Kartu" class="card-img" />
         <div class="card-content">
           <h3 class="card-name">Taylor Swift</h3>
           <p class="card-judul">Shake It Off</p>
@@ -34,7 +43,7 @@
         </div>
       </div>
       <div class="card">
-        <img src='https://th.bing.com/th/id/OIP.eVBndpZHDo9nbZVKefk8bAHaD4?w=345&h=181&c=7&r=0&o=5&dpr=1.5&pid=1.7 alt="Gambar Kartu" class="card-img' />
+        <img src="https://th.bing.com/th/id/OIP.eVBndpZHDo9nbZVKefk8bAHaD4?w=345&h=181&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Gambar Kartu" class="card-img" />
         <div class="card-content">
           <h3 class="card-name">Billie Eilish</h3>
           <p class="card-judul">asfadsor</p>

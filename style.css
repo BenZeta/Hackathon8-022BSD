@@ -2,7 +2,7 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  margin: 20px; /* This ensures even space around each card */
+  margin: 10px; /* This ensures even space around each card */
   /* flex: 1 1 300px; Allow cards to take up space evenly */
 }
 
@@ -32,8 +32,9 @@ img {
 }
 
 .button {
-  padding-left: 10px;
-  padding-bottom: 5px;
+  margin: 5px 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header {
@@ -58,6 +59,112 @@ body {
   margin: 0;
 }
 
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin: 0 20px;
+}
+
+/* Button styling */
+button {
+  background: linear-gradient(135deg, #333, #777); /* Monochrome gradient background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 8px 16px; /* Some padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make the buttons appear side by side */
+  font-size: 16px; /* Increase font size */
+  /* margin: 4px 2px; Some margin */
+  cursor: pointer; /* Pointer/hand icon */
+  border-radius: 12px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Add shadow for depth */
+  font-family: "Arial", sans-serif; /* Use a modern font */
+}
+
+button:hover {
+  background: linear-gradient(135deg, #444, #888); /* Slightly lighter gradient on hover */
+  transform: translateY(-2px); /* Slightly lift the button on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); /* Enhance shadow on hover */
+}
+
+button:active {
+  background: linear-gradient(135deg, #222, #666); /* Darker gradient when clicked */
+  transform: translateY(0); /* Reset lift when clicked */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Reset shadow when clicked */
+}
+
+button:disabled {
+  background-color: #cccccc; /* Gray background for disabled buttons */
+  cursor: not-allowed; /* Not-allowed cursor for disabled buttons */
+  box-shadow: none; /* Remove shadow for disabled buttons */
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+button:active {
+  background-color: #3e8e41; /* Even darker green when clicked */
+}
+
+button:disabled {
+  background-color: #cccccc; /* Gray background for disabled buttons */
+  cursor: not-allowed; /* Not-allowed cursor for disabled buttons */
+}
+
+.start-button {
+  margin-left: -10px;
+}
+
+.button button {
+  width: 120px;
+}
+
 .search-container {
-  margin-left : 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.search-container select,
+.search-container input {
+  padding: 10px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.search-container select:focus,
+.search-container input:focus {
+  border-color: #888;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.create-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.create-button:active {
+  background-color: #3e8e41;
+  transform: translateY(0);
 }
