@@ -79,11 +79,10 @@ let songs = [
 // hihihi.value= "Flash"
 // localStorage.setItem("songsData", JSON.stringify(songs));
 
-document.addEventListener("DOMContentLoaded", () => {
-  function helperCreateCard(song) {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `
+function helperCreateCard(song) {
+  const div = document.createElement("div");
+  div.className = "card";
+  div.innerHTML = `
               <img src="https://th.bing.com/th/id/OIP.eVBndpZHDo9nbZVKefk8bAHaD4?w=345&h=181&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Gambar Kartu' class="card-img" />
           <div class="card-content">
             <h3 class="card-name">${song.name}</h3>
@@ -92,48 +91,46 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="card-lyric">${song.shortLyrics}</p>
           <div class="button">
             <button class="start-button">Start Game</button>
-            <button class="edit-button">Edit</button>
+            <a href="form.html"><button class="edit-button">Edit</button></a>
             <button class="delete-button">Delete</button>
           </div>
           `;
 
-    const deleteBtn = div.querySelector(".delete-button");
+  const deleteBtn = div.querySelector(".delete-button");
 
-    deleteBtn.addEventListener("click", () => {
-      deleteCard(song.id);
-    });
+  deleteBtn.addEventListener("click", () => {
+    deleteCard(song.id);
+  });
 
-    return div;
+  return div;
+}
+
+function renderCard() {
+  let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
+
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
+
+  for (let i = 0; i < getSong.length; i++) {
+    const card = helperCreateCard(getSong[i]);
+    container.appendChild(card);
   }
+}
 
-  
+function deleteCard(id) {
+  let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
 
-  function renderCard() {
-    let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
+  const newData = getSong.filter((song) => song.id !== id);
 
-    const container = document.querySelector(".container");
-    container.innerHTML = "";
+  localStorage.setItem("songsData", JSON.stringify(newData));
 
-    for (let i = 0; i < getSong.length; i++) {
-      const card = helperCreateCard(getSong[i]);
-      container.appendChild(card);
-    }
-  }
-
-  function deleteCard(id) {
-    let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
-
-    const newData = getSong.filter((song) => song.id !== id);
-
-    localStorage.setItem("songsData", JSON.stringify(newData));
-
-    songs = newData;
-    renderCard();
-  }
-
-  function editCard() {
-    // asdgasdg
-  }
-
+  songs = newData;
   renderCard();
-});
+}
+
+function editCard() {
+  // asdgasdg
+
+}
+
+renderCard();
