@@ -65,7 +65,7 @@ let songs = [
   },
 ];
 
-// Test
+// BACKUP
 document.addEventListener("DOMContentLoaded", () => {
   function helperCreateCard(song) {
     const div = document.createElement("div");
