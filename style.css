@@ -19,7 +19,7 @@ img {
 .container {
   padding: 2px 16px;
   display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  flex-wrap: wrap; /*Allow cards to wrap to the next line*/
   gap: 20px; /* Space between cards */
   justify-content: center; /* Center the cards in the container */
   width: 80%;
