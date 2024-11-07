@@ -1,3 +1,50 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f9;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid #4CAF50;
+  border-radius: 25px;
+  overflow: hidden;
+  width: 300px;
+  background-color: white;
+}
+.button {
+  display: flex;
+  justify-content: right;
+}
+
+.search-input {
+  border: none;
+  padding: 10px;
+  font-size: 1em;
+  width: 100%;
+  outline: none;
+}
+
+.search-button {
+  background-color: #4A628A;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #45a049;
+}
+=======
 /* Card styling */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
