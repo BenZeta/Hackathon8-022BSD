@@ -72,7 +72,7 @@ let songs = [
     longLyrics: "Wearing a ring but ain't gon' be no missus, bought matching diamonds for six of my b******",
   },
 ];
-
+//a
 // BACKUP
 // let hihihi = document.getElementById('hihihi');
 
