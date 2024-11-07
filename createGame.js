@@ -44,3 +44,5 @@ function checkAnswer(missingWord) {
 }
 
 initializeGame();
+
+//test
