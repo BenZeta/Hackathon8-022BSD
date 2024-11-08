@@ -2,9 +2,13 @@ function initializeGame() {
   const gameId = Number(localStorage.getItem("gameId"));
   const getSong = JSON.parse(localStorage.getItem("songsData"));
 
-  const song = getSong.find((s) => s.id == gameId);
-
-  console.log("Found song:", song);
+  // const song = getSong.find((s) => s.id == gameId);
+  let song = null;
+  for (let i = 0; i < getSong.length; i++) {
+    if (getSong[i].id === gameId) {
+      song = getSong[i];
+    }
+  }
 
   if (!song) {
     alert("Song not found!");
@@ -23,11 +27,14 @@ function initializeGame() {
             <p class="lyrics">${words.join(" ")}</p>
             <div class="game-input">
                 <input type="text" id="answer-input" placeholder="Type the missing word">
-                <button onclick="checkAnswer('${correctAnswer}')">Submit</button>
+                <button class="checkAnswer">Submit</button>
             </div>
             <p id="result"></p>
             <a href="index.html"><button>Back to Home</button></a>
         `;
+
+  const checkAnswerButton = document.querySelector(".checkAnswer");
+  checkAnswerButton.addEventListener("click", () => checkAnswer(correctAnswer));
 }
 
 function checkAnswer(missingWord) {
@@ -44,5 +51,3 @@ function checkAnswer(missingWord) {
 }
 
 initializeGame();
-
-//test123

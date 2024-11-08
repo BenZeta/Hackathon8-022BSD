@@ -276,7 +276,7 @@ function createCard(event) {
       name: name,
       title: title,
       album: album,
-      shortLyrics: lyrics.slice(0, 30),
+      shortLyrics: lyrics.slice(0, 15),
       longLyrics: lyrics,
     };
 
