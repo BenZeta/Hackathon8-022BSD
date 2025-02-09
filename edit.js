@@ -1,4 +1,4 @@
-function loadSongToEdit() {
+function loadSongData() {
   let getId = Number(localStorage.getItem("editId"));
   let getEditObject = {};
   const getSongs = JSON.parse(localStorage.getItem("songsData")) || songs;
@@ -18,7 +18,7 @@ function loadSongToEdit() {
   editLyrics.value = getEditObject.shortLyrics;
 }
 
-loadSongToEdit();
+loadSongData();
 
 function simpan() {
   let getId = Number(localStorage.getItem("editId"));
@@ -27,6 +27,8 @@ function simpan() {
   let editTitle = document.getElementById("editTitle");
   let editAlbum = document.getElementById("editAlbum");
   let editLyrics = document.getElementById("editLyrics");
+
+  let getId = Number(localStorage.getItem("editId"));
 
   const getSongs = JSON.parse(localStorage.getItem("songsData")) || songs;
 

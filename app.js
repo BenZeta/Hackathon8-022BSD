@@ -163,12 +163,6 @@ let songs = [
   },
 ];
 
-// BACKUP
-// let hihihi = document.getElementById('hihihi');
-
-// hihihi.value= "Flash"
-// localStorage.setItem("songsData", JSON.stringify(songs));
-
 function helperCreateCard(song) {
   const div = document.createElement("div");
   div.className = "card";
@@ -235,6 +229,7 @@ function renderCard() {
     container.appendChild(card);
   }
 }
+
 let filterInput = document.getElementById("search-input");
 let filterType = document.getElementById("filterType");
 
@@ -289,7 +284,6 @@ function createCard(event) {
 }
 
 let submitFormBtn = document.querySelector(".submit-btn");
-
 if (submitFormBtn) {
   submitFormBtn.addEventListener("click", createCard);
 }

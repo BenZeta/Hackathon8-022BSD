@@ -2,10 +2,9 @@ function initializeGame() {
   const gameId = Number(localStorage.getItem("gameId"));
   const getSong = JSON.parse(localStorage.getItem("songsData"));
 
-  // const song = getSong.find((s) => s.id == gameId);
   let song = null;
   for (let i = 0; i < getSong.length; i++) {
-    if (getSong[i].id === gameId) {
+    if (getSong[i].id == gameId) {
       song = getSong[i];
     }
   }
@@ -22,6 +21,7 @@ function initializeGame() {
   words[randomIndex] = "_____";
 
   const gameContainer = document.getElementById("game-container");
+
   gameContainer.innerHTML = `
             <h2>${song.title} by ${song.name}</h2>
             <p class="lyrics">${words.join(" ")}</p>
@@ -33,8 +33,8 @@ function initializeGame() {
             <a href="index.html"><button>Back to Home</button></a>
         `;
 
-  const checkAnswerButton = document.querySelector(".checkAnswer");
-  checkAnswerButton.addEventListener("click", () => checkAnswer(correctAnswer));
+  const checkAnswBtn = document.querySelector(".checkAnswer");
+  checkAnswBtn.addEventListener("click", () => checkAnswer(correctAnswer));
 }
 
 function checkAnswer(missingWord) {
@@ -51,3 +51,5 @@ function checkAnswer(missingWord) {
 }
 
 initializeGame();
+
+//test
