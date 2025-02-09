@@ -163,17 +163,10 @@ let songs = [
   },
 ];
 
-// BACKUP
-// let hihihi = document.getElementById('hihihi');
-
-// hihihi.value= "Flash"
-// localStorage.setItem("songsData", JSON.stringify(songs));
-
-document.addEventListener("DOMContentLoaded", function () {
-  function helperCreateCard(song) {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `
+function helperCreateCard(song) {
+  const div = document.createElement("div");
+  div.className = "card";
+  div.innerHTML = `
               <img src="${song.imageUrl ? song.imageUrl : "https://i.pinimg.com/736x/65/75/00/657500028b9ae4b57873e4398d6fb61a.jpg"}" alt="" class="card-img" />
           <div class="card-content">
             <h3 class="card-name">${song.name}</h3>
@@ -187,118 +180,116 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           `;
 
-    const deleteBtn = div.querySelector(".delete-button");
-    const editBtn = div.querySelector(".edit-button");
-    const startBtn = div.querySelector(".start-button");
+  const deleteBtn = div.querySelector(".delete-button");
+  const editBtn = div.querySelector(".edit-button");
+  const startBtn = div.querySelector(".start-button");
 
-    deleteBtn.addEventListener("click", () => {
-      deleteCard(song.id);
-    });
-    editBtn.addEventListener("click", () => {
-      editCard(song.id);
-    });
-    startBtn.addEventListener("click", () => {
-      localStorage.setItem("gameId", song.id);
-    });
+  deleteBtn.addEventListener("click", () => {
+    deleteCard(song.id);
+  });
+  editBtn.addEventListener("click", () => {
+    editCard(song.id);
+  });
+  startBtn.addEventListener("click", () => {
+    localStorage.setItem("gameId", song.id);
+  });
 
-    return div;
-  }
+  return div;
+}
 
-  function renderCard() {
-    let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
-
-    let filterInput = document.getElementById("search-input");
-    let filterType = document.getElementById("filterType");
-
-    const container = document.querySelector(".container");
-    if (!container) {
-      return;
-    }
-
-    container.innerHTML = "";
-
-    let filteredSongs = [];
-
-    if (filterInput.value === "") {
-      filteredSongs = getSong;
-    } else {
-      for (let i = 0; i < getSong.length; i++) {
-        const checkFilter = getSong[i][filterType.value].toLowerCase();
-
-        if (checkFilter && checkFilter.includes(filterInput.value.toLowerCase())) {
-          filteredSongs.push(getSong[i]);
-        }
-      }
-    }
-
-    for (let i = 0; i < filteredSongs.length; i++) {
-      const card = helperCreateCard(filteredSongs[i]);
-      container.appendChild(card);
-    }
-  }
+function renderCard() {
+  let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
 
   let filterInput = document.getElementById("search-input");
   let filterType = document.getElementById("filterType");
 
-  if (filterInput && filterType) {
-    filterInput.addEventListener("input", renderCard);
-    filterType.addEventListener("change", renderCard);
+  const container = document.querySelector(".container");
+  if (!container) {
+    return;
   }
 
-  function deleteCard(id) {
-    let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
+  container.innerHTML = "";
 
-    const newData = getSong.filter((song) => song.id !== id);
+  let filteredSongs = [];
 
-    localStorage.setItem("songsData", JSON.stringify(newData));
+  if (filterInput.value === "") {
+    filteredSongs = getSong;
+  } else {
+    for (let i = 0; i < getSong.length; i++) {
+      const checkFilter = getSong[i][filterType.value].toLowerCase();
 
-    songs = newData;
-    renderCard();
-  }
-
-  function createCard(event) {
-    event.preventDefault();
-
-    let name = document.getElementById("name").value;
-    let title = document.getElementById("title").value;
-    let album = document.getElementById("album").value;
-    let lyrics = document.getElementById("lyrics").value;
-
-    let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
-
-    let highestId = -Infinity;
-    if ((name, title, album, lyrics)) {
-      for (let i = 0; i < getSong.length; i++) {
-        if (getSong[i].id > highestId) {
-          highestId = getSong[i].id;
-        }
+      if (checkFilter && checkFilter.includes(filterInput.value.toLowerCase())) {
+        filteredSongs.push(getSong[i]);
       }
-      const newSong = {
-        id: highestId + 1,
-        name: name,
-        title: title,
-        album: album,
-        shortLyrics: lyrics.slice(0, 30),
-        longLyrics: lyrics,
-      };
-
-      getSong.push(newSong);
-
-      localStorage.setItem("songsData", JSON.stringify(getSong));
-
-      window.location.href = "index.html";
     }
   }
 
-  let submitFormBtn = document.querySelector(".submit-btn");
-
-  if (submitFormBtn) {
-    submitFormBtn.addEventListener("click", createCard);
+  for (let i = 0; i < filteredSongs.length; i++) {
+    const card = helperCreateCard(filteredSongs[i]);
+    container.appendChild(card);
   }
+}
 
-  function editCard(id) {
-    localStorage.setItem("editId", String(id));
-  }
+let filterInput = document.getElementById("search-input");
+let filterType = document.getElementById("filterType");
 
+if (filterInput && filterType) {
+  filterInput.addEventListener("input", renderCard);
+  filterType.addEventListener("change", renderCard);
+}
+
+function deleteCard(id) {
+  let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
+
+  const newData = getSong.filter((song) => song.id !== id);
+
+  localStorage.setItem("songsData", JSON.stringify(newData));
+
+  songs = newData;
   renderCard();
-});
+}
+
+function createCard(event) {
+  event.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let title = document.getElementById("title").value;
+  let album = document.getElementById("album").value;
+  let lyrics = document.getElementById("lyrics").value;
+
+  let getSong = JSON.parse(localStorage.getItem("songsData")) || songs;
+
+  let highestId = -Infinity;
+  if ((name, title, album, lyrics)) {
+    for (let i = 0; i < getSong.length; i++) {
+      if (getSong[i].id > highestId) {
+        highestId = getSong[i].id;
+      }
+    }
+    const newSong = {
+      id: highestId + 1,
+      name: name,
+      title: title,
+      album: album,
+      shortLyrics: lyrics.slice(0, 15),
+      longLyrics: lyrics,
+    };
+
+    getSong.push(newSong);
+
+    localStorage.setItem("songsData", JSON.stringify(getSong));
+
+    window.location.href = "index.html";
+  }
+}
+
+let submitFormBtn = document.querySelector(".submit-btn");
+if (submitFormBtn) {
+  submitFormBtn.addEventListener("click", createCard);
+}
+
+function editCard(id) {
+  localStorage.setItem("editId", String(id));
+}
+
+renderCard();
