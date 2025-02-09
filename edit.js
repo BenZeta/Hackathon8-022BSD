@@ -28,8 +28,6 @@ function simpan() {
   let editAlbum = document.getElementById("editAlbum");
   let editLyrics = document.getElementById("editLyrics");
 
-  let getId = Number(localStorage.getItem("editId"));
-
   const getSongs = JSON.parse(localStorage.getItem("songsData")) || songs;
 
   let result = [];
